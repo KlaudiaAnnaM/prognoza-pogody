@@ -38,7 +38,8 @@ function searchWeather(searchCity) {
         .then(res => res.json())
         .then((data) => {
             init(data);
-        });
+        })
+        .catch(() => alert('Nie znaleniozo miasta ;('));
 }
 
 function forecastGetData(searchCity) {
@@ -46,7 +47,8 @@ function forecastGetData(searchCity) {
         .then(res => res.json())
         .then((data) => {
             initForecast(data);
-        });
+        })
+        .catch(() => { });
 }
 
 function init(resultFromServer) {
@@ -97,11 +99,18 @@ function init(resultFromServer) {
 function initForecast(forecastResult) {
     let size = 5;
 
+    document.getElementById("forecastTable").deleteRow(0);
+    document.getElementById("forecastTable").deleteRow(0);
+    document.getElementById("forecastTable").deleteRow(0);
+    document.getElementById("forecastTable").insertRow().setAttribute('id', 'forecastHoursCell');
+    document.getElementById("forecastTable").insertRow().setAttribute('id', 'forecastImageCell');
+    document.getElementById("forecastTable").insertRow().setAttribute('id', 'forecastTempCell');
+
     forecastResult.list.slice(0, size).forEach(element => {
 
         var forecastHoursCell = document.getElementById('forecastHoursCell');
         var x = forecastHoursCell.insertCell(-1);
-        x.innerHTML = element.dt_txt;
+        x.innerHTML = new Date(element.dt_txt).toLocaleTimeString();
 
         var forecastImageCell = document.getElementById('forecastImageCell');
         var z = forecastImageCell.insertCell(-1);
