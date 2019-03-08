@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prognoza pogody</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="searchContainer">
+        <input class="searchContainer" id="searchInput" type="text" placeholder="Nazwa miasta">
+        <button class="searchContainer" id="searchBtn">Szukaj</button>
+    </div>
+
+    <div id="weatherContainer">
+        <div id="weatherDescription">
+            <h1 id="cityHeader"></h1>
+            <div id="weatherMain">
+                <div id="temperature"></div>
+                <div><img id="documentIconImg"></div>
+            </div>
+            <br>
+            <div id="pressure" class="bottom-details"></div>
+            <div id="windSpeed" class="bottom-details"></div>
+            <div id="humidity" class="bottom-details"></div>
+        </div>
+    </div>
+
+    <div id="forecast">
+        <table id="forecastTable">
+            <tr id="forecastHoursCell">
+                <td></td>
+            </tr>
+            <tr id="forecastImageCell">
+                <td><img id="forecastImage"></td>
+            </tr>
+            <tr id="forecastTempCell">
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
